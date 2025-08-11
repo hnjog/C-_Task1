@@ -44,3 +44,13 @@ void Player::UseItem(ItemIdx item)
 
 	MyInventory->UseItem(item, this);
 }
+
+int Player::GetItemCount(ItemIdx item)
+{
+	if (IsNotValid(MyInventory))
+	{
+		return 0;
+	}
+
+	return MyInventory->GetItemCount(item);
+}

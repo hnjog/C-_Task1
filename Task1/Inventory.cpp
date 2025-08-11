@@ -73,6 +73,16 @@ bool Inventory::UseItem(ItemIdx itemIdx, Character* Target)
 	return result;
 }
 
+int Inventory::GetItemCount(ItemIdx itemIdx)
+{
+	if (itemIdx >= ItemIdx::ItemMax)
+	{
+		return 0;
+	}
+
+	return ItemMap[itemIdx].ItemCount;
+}
+
 bool Inventory::Effect(EffectIdx effectIdx, Character* Target)
 {
 	// 원래는 enum 등으로 실패 원인을 반환하는 것이 정석이지만 임시용 bool

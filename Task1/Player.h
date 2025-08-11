@@ -17,8 +17,10 @@ public:
 	void GetItem(ItemIdx item, int count);
 	void UseItem(ItemIdx item);
 
-	void HalfHp() { CurrentHp = GetMaxHp() / 2; }
-	void HalfMp() { CurrentMp = GetMaxMp() / 2; }
+	int GetItemCount(ItemIdx item);
+
+	inline void HalfHp() { CurrentHp = GetMaxHp() / 2; }
+	inline void HalfMp() { CurrentMp = GetMaxMp() / 2; }
 
 protected:
 	Inventory* MyInventory;

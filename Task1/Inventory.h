@@ -23,6 +23,8 @@ public:
 	void AddItem(ItemIdx itemIdx, int count);
 	bool UseItem(ItemIdx itemIdx, Character* Target);
 
+	int GetItemCount(ItemIdx itemIdx);
+
 protected:
 	bool Effect(EffectIdx effectIdx, Character* Target);
 
