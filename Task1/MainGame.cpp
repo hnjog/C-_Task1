@@ -97,7 +97,8 @@ void MainGame::PlayGame()
 			}
 			else
 			{
-				cout << "HP가 가득차있습니다 :" << MyPlayer->GetNowHp() << '\n';
+				cout << "HP가 가득차있습니다!"<< '\n';
+				cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
 			}
 		}
 		break;
@@ -115,7 +116,8 @@ void MainGame::PlayGame()
 			}
 			else
 			{
-				cout << "MP가 가득차있습니다 :" << MyPlayer->GetNowMp() << '\n';
+				cout << "MP가 가득차있습니다!" << '\n';
+				cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
 			}
 		}
 		break;
