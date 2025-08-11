@@ -12,6 +12,12 @@
       <Filter>Inventory</Filter>
     </ClCompile>
     <ClCompile Include="Enums.h" />
+    <ClCompile Include="Player.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Character">
@@ -22,6 +28,9 @@
     </Filter>
     <Filter Include="Inventory">
       <UniqueIdentifier>{639c13b1-e079-4a64-87a8-d46f7fe11dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{3ce54539-aabf-48ac-9828-d87912dcdee4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
