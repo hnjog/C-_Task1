@@ -1,6 +1,7 @@
 ﻿#include"Inventory.h"
 #include"Character.h"
 #include"Util.h"
+#include <iostream>
 
 Inventory::Inventory(Character* owner)
 	:Owner(owner)
@@ -95,7 +96,9 @@ bool Inventory::Effect(EffectIdx effectIdx, Character* Target)
 		if (Target->FullHp())
 			return false;
 
+		// 해당 수치는 ItemBase 클래스와 DataTable 연동이 나을듯하다
 		Target->HealHp(20);
+		cout << "HP 포션이 1개 차감됩니다" << '\n';
 	}
 		break;
 	case ManaRefrain:
@@ -104,6 +107,7 @@ bool Inventory::Effect(EffectIdx effectIdx, Character* Target)
 			return false;
 
 		Target->RefreshMp(20);
+		cout << "MP 포션이 1개 차감됩니다" << '\n';
 	}
 		break;
 	}
