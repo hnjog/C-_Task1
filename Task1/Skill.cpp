@@ -1,4 +1,4 @@
-#include"Skill.h"
+﻿#include"Skill.h"
 
 Skill::Skill()
 	:Skill(0, 0)

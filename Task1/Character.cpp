@@ -1,4 +1,4 @@
-#include "Util.h"
+ï»¿#include "Util.h"
 #include "Character.h"
 #include "Skill.h"
 
@@ -16,9 +16,9 @@ Character::Character(int maxHp, int maxMp, int attack, int defense, string name)
 {
 }
 
-// ÀÌ·¯¸é move(name)ÀÌ °á°úÀûÀ¸·Î 2¹ø ÀÌ·ç¾îÁöÁö¸¸,
-// »ç½Ç ÇÔ¼ö Áö¿ª º¯¼ö¿¡ string ÀÇ ÀÌµ¿ »ı¼ºÀÚ·Î ±× °ªÀÌ µé¾î°¡±â¿¡ Å¸ÀÔ»ó ¹®Á¦°¡ ¾ø¾îº¸ÀÓ
-// Áö¿ªº¯¼ö name <- move(¿ÜºÎ outername) 
+// ì´ëŸ¬ë©´ move(name)ì´ ê²°ê³¼ì ìœ¼ë¡œ 2ë²ˆ ì´ë£¨ì–´ì§€ì§€ë§Œ,
+// ì‚¬ì‹¤ í•¨ìˆ˜ ì§€ì—­ ë³€ìˆ˜ì— string ì˜ ì´ë™ ìƒì„±ìë¡œ ê·¸ ê°’ì´ ë“¤ì–´ê°€ê¸°ì— íƒ€ì…ìƒ ë¬¸ì œê°€ ì—†ì–´ë³´ì„
+// ì§€ì—­ë³€ìˆ˜ name <- move(ì™¸ë¶€ outername) 
 Character::Character(const Stats& stats, string name)
 	:Character(stats.MaxHp, stats.MaxMp, stats.Attack, stats.Defense, move(name))
 {

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class Skill
 {
@@ -8,6 +8,6 @@ public:
 	virtual ~Skill();
 
 public:
-	double DamageRate; // attack ¿¡ °öÇØÁú ºñÀ²
+	double DamageRate; // attack ì— ê³±í•´ì§ˆ ë¹„ìœ¨
 	int RequireMp;
 };
