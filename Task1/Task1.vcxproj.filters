@@ -8,6 +8,10 @@
     <ClCompile Include="Skill.cpp">
       <Filter>Skill</Filter>
     </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Enums.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Character">
@@ -27,6 +31,9 @@
     <ClInclude Include="Util.h" />
     <ClInclude Include="Skill.h">
       <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Inventory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
