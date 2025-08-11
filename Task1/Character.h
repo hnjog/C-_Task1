@@ -1,6 +1,7 @@
 #pragma once
 
-#include<vector>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -35,8 +36,8 @@ class Character
 {
 public:
 	Character();
-	Character(int maxHp, int maxMp, int attack, int defense);
-	Character(const Stats& stats);
+	Character(int maxHp, int maxMp, int attack, int defense, string name);
+	Character(const Stats& stats, string name);
 	virtual ~Character();
 
 	virtual void Attack(Character* Other, int skillIdx);
@@ -55,10 +56,13 @@ public:
 
 	inline int GetAttack() { return BaseStat->Attack + EnhancedStat->Attack; }
 
+	inline const string& GetString() { return Name; }
 
 protected:
 	int CurrentHp;
 	int CurrentMp;
+
+	string Name;
 
 	Stats* BaseStat;
 	Stats* EnhancedStat;
