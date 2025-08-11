@@ -45,7 +45,7 @@ bool Inventory::UseItem(ItemIdx itemIdx, Character* Target)
 		return false;
 	}
 
-	if (!IsValid(Target))
+	if (IsNotValid(Target))
 	{
 		return false;
 	}
@@ -81,7 +81,7 @@ bool Inventory::Effect(EffectIdx effectIdx, Character* Target)
 		return false;
 	}
 
-	if (!IsValid(Target))
+	if (IsNotValid(Target))
 	{
 		return false;
 	}

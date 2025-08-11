@@ -27,7 +27,7 @@ Player::~Player()
 
 void Player::GetItem(ItemIdx item, int count)
 {
-	if (IsValid(MyInventory))
+	if (IsNotValid(MyInventory))
 	{
 		return;
 	}
@@ -37,7 +37,7 @@ void Player::GetItem(ItemIdx item, int count)
 
 void Player::UseItem(ItemIdx item)
 {
-	if (IsValid(MyInventory))
+	if (IsNotValid(MyInventory))
 	{
 		return;
 	}
