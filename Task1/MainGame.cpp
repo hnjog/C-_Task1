@@ -98,12 +98,12 @@ void MainGame::PlayGame()
 		break;
 		case 3:
 		{
-
+			MyPlayer->BoostDoubleMaxHp();
 		}
 		break;
 		case 4:
 		{
-
+			MyPlayer->BoostDoubleMaxMp();
 		}
 		break;
 		case 5:
