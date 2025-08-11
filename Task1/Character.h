@@ -62,6 +62,7 @@ public:
 	inline bool IsDead() { return CurrentHp <= 0; }
 
 	inline int GetAttack() { return BaseStat->Attack + EnhancedStat->Attack; }
+	inline int GetDefense() { return BaseStat->Defense + EnhancedStat->Defense; }
 
 	inline const string& GetString() { return Name; }
 

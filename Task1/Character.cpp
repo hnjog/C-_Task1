@@ -76,7 +76,7 @@ void Character::Attack(Character* Other, SkillIdx skillIdx)
 
 void Character::Hit(int damage)
 {
-	CurrentHp -= damage;
+	CurrentHp -= (damage - GetDefense());
 }
 
 void Character::AddSkill(SkillIdx skillIdx, Skill&& skill)
