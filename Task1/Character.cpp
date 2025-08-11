@@ -128,6 +128,7 @@ void Character::BoostDoubleMaxHp()
 	int baseHp = BaseStat->MaxHp;
 
 	EnhancedStat->MaxHp = targetHp - baseHp;
+	CurrentHp *= 2;
 	cout << "* HP가 2배로 증가되었습니다." << '\n';
 }
 
@@ -137,5 +138,6 @@ void Character::BoostDoubleMaxMp()
 	int baseMp = BaseStat->MaxMp;
 
 	EnhancedStat->MaxMp = targetMp - baseMp;
+	CurrentMp *= 2;
 	cout << "* MP가 2배로 증가되었습니다." << '\n';
 }
