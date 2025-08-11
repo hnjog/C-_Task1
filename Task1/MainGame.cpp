@@ -10,6 +10,7 @@ MainGame::MainGame()
 	:MyPlayer(nullptr)
 {
 	tester = new Character(1000,1000,40,0,"Tester");
+	tester->AddSkill(SkillIdx::BaseAttack, { 2.0,0 });
 }
 
 MainGame::~MainGame()
@@ -73,6 +74,7 @@ void MainGame::PlayGame()
 	cout << "5. 공격 스킬 사용" << '\n';
 	cout << "6. 필살기 사용" << '\n';
 	cout << "7. 나가기" << '\n';
+	cout << "8. 테스터의 공격" << '\n';
 
 	int num = 0;
 	bool bGameEnd = false;
@@ -147,6 +149,13 @@ void MainGame::PlayGame()
 		{
 			cout << "프로그램을 종료합니다." << '\n';
 			bGameEnd = true;
+		}
+		break;
+		case 8:
+		{
+			tester->Attack(MyPlayer, SkillIdx::BaseAttack);
+			cout << "Tester가 당신을 떼립니다!" << '\n';
+			cout << "당신의 HP : " << MyPlayer->GetNowHp() << '\n';
 		}
 		break;
 		default:

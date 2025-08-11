@@ -59,14 +59,14 @@ void Character::Attack(Character* Other, SkillIdx skillIdx)
 	{
 		CurrentMp -= Skills[skillIdx].RequireMp;
 		cout << "* 스킬을 사용하여 MP가 " << Skills[skillIdx].RequireMp <<  " 소모되었습니다." << '\n';
-		cout << "현재 MP : " << CurrentMp << '\n';
+		cout << Name << "의 현재 MP : " << CurrentMp << '\n';
 	}
 		break;
 	case LethalAttack:
 	{
 		CurrentMp /= 2;
 		cout << "* 스킬을 사용하여 MP가 50% 소모되었습니다." << '\n';
-		cout << "현재 MP : " << CurrentMp << '\n';
+		cout << Name << "의 현재 MP : " << CurrentMp << '\n';
 	}
 		break;
 	}
