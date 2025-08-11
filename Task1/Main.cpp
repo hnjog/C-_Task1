@@ -1,6 +1,9 @@
 ﻿#include <iostream>
+#include "MainGame.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    MainGame* mainGame = new MainGame();
+    mainGame->PlayGame();
+    delete mainGame;
 }
