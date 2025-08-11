@@ -45,6 +45,12 @@ public:
 
 	void AddSkill(Skill&& skill);
 
+	void HealHp(int amount);
+	void RefreshMp(int amount);
+
+	void BoostDoubleMaxHp();
+	void BoostDoubleMaxMp();
+
 public:
 	inline int GetNowHp() { return CurrentHp; }
 	inline int GetMaxHp() { return BaseStat->MaxHp + EnhancedStat->MaxHp; }
@@ -57,6 +63,9 @@ public:
 	inline int GetAttack() { return BaseStat->Attack + EnhancedStat->Attack; }
 
 	inline const string& GetString() { return Name; }
+
+	inline bool FullHp() { return CurrentHp == GetMaxHp(); }
+	inline bool FullMp() { return CurrentMp == GetMaxMp(); }
 
 protected:
 	int CurrentHp;

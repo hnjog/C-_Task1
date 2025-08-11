@@ -49,3 +49,45 @@ void Character::AddSkill(Skill&& skill)
 {
 	Skills.push_back(move(skill));
 }
+
+void Character::HealHp(int amount)
+{
+	if (amount <= 0)
+		return;
+
+	if (FullHp())
+		return;
+
+	CurrentHp += amount;
+	if (CurrentHp > GetMaxHp())
+		CurrentHp = GetMaxHp();
+}
+
+void Character::RefreshMp(int amount)
+{
+	if (amount <= 0)
+		return;
+
+	if (FullMp())
+		return;
+
+	CurrentMp += amount;
+	if (CurrentMp > GetMaxMp())
+		CurrentMp = GetMaxMp();
+}
+
+void Character::BoostDoubleMaxHp()
+{
+	int targetHp = GetMaxHp() << 1; // * 2
+	int baseHp = BaseStat->MaxHp;
+
+	EnhancedStat->MaxHp = targetHp - baseHp;
+}
+
+void Character::BoostDoubleMaxMp()
+{
+	int targetMp = GetMaxMp() << 1;
+	int baseMp = BaseStat->MaxMp;
+
+	EnhancedStat->MaxMp = targetMp - baseMp;
+}
