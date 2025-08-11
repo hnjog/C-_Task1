@@ -99,11 +99,13 @@ void MainGame::PlayGame()
 		case 3:
 		{
 			MyPlayer->BoostDoubleMaxHp();
+			cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
 		}
 		break;
 		case 4:
 		{
 			MyPlayer->BoostDoubleMaxMp();
+			cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
 		}
 		break;
 		case 5:
