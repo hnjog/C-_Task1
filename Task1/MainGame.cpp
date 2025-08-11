@@ -85,16 +85,31 @@ void MainGame::PlayGame()
 		{
 		case 1:
 		{
-			MyPlayer->UseItem(ItemIdx::HealthPotion);
-			cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
-			cout << "남은 HP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::HealthPotion) << '\n';
+			if (MyPlayer->GetItemCount(ItemIdx::HealthPotion) <= 0)
+			{
+				cout << "포션이 부족합니다" << '\n';
+			}
+			else
+			{
+				MyPlayer->UseItem(ItemIdx::HealthPotion);
+				cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
+				cout << "남은 HP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::HealthPotion) << '\n';
+			}
+			
 		}
 		break;
 		case 2:
 		{
-			MyPlayer->UseItem(ItemIdx::ManaPotion);
-			cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
-			cout << "남은 MP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::ManaPotion) << '\n';
+			if (MyPlayer->GetItemCount(ItemIdx::ManaPotion) <= 0)
+			{
+				cout << "포션이 부족합니다" << '\n';
+			}
+			else
+			{
+				MyPlayer->UseItem(ItemIdx::ManaPotion);
+				cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
+				cout << "남은 MP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::ManaPotion) << '\n';
+			}
 		}
 		break;
 		case 3:
