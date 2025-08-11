@@ -75,7 +75,8 @@ void MainGame::PlayGame()
 	cout << "7. 나가기" << '\n';
 
 	int num = 0;
-	while (true)
+	bool bGameEnd = false;
+	while (bGameEnd == false)
 	{
 		cout << "번호를 선택해주세요:";
 		cin >> num;
@@ -110,17 +111,18 @@ void MainGame::PlayGame()
 		break;
 		case 5:
 		{
-
+			MyPlayer->Attack(tester, SkillIdx::BaseAttack);
 		}
 		break;
 		case 6:
 		{
-
+			MyPlayer->Attack(tester, SkillIdx::LethalAttack);
 		}
 		break;
 		case 7:
 		{
-
+			cout << "프로그램을 종료합니다." << '\n';
+			bGameEnd = true;
 		}
 		break;
 		default:
