@@ -85,11 +85,15 @@ void MainGame::PlayGame()
 		case 1:
 		{
 			MyPlayer->UseItem(ItemIdx::HealthPotion);
+			cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
+			cout << "남은 HP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::HealthPotion) << '\n';
 		}
 		break;
 		case 2:
 		{
-
+			MyPlayer->UseItem(ItemIdx::ManaPotion);
+			cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
+			cout << "남은 MP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::ManaPotion) << '\n';
 		}
 		break;
 		case 3:
