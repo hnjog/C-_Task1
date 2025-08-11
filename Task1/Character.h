@@ -1,5 +1,11 @@
 #pragma once
 
+#include<vector>
+
+using namespace std;
+
+class Skill;
+
 struct Stats
 {
 	int MaxHp;
@@ -33,8 +39,10 @@ public:
 	Character(const Stats& stats);
 	virtual ~Character();
 
-	virtual void Attack(Character* Other);
-	virtual void Hit(Character* Other);
+	virtual void Attack(Character* Other, int skillIdx);
+	virtual void Hit(int damage);
+
+	void AddSkill(Skill&& skill);
 
 public:
 	inline int GetNowHp() { return CurrentHp; }
@@ -54,5 +62,7 @@ protected:
 
 	Stats* BaseStat;
 	Stats* EnhancedStat;
+
+	vector<Skill> Skills;
 };
 

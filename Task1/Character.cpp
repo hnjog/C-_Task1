@@ -1,5 +1,6 @@
 #include "Util.h"
 #include "Character.h"
+#include "Skill.h"
 
 Character::Character()
 	: Character(0, 0, 0, 0)
@@ -21,16 +22,26 @@ Character::Character(const Stats& stats)
 
 Character::~Character()
 {
+	Skills.clear();
 	SafeDelete(BaseStat);
 	SafeDelete(EnhancedStat);
 }
 
-void Character::Attack(Character* Other)
+void Character::Attack(Character* Other, int skillIdx)
 {
-	
+	if (skillIdx >= Skills.size())
+		return;
+
+	int nowDamage = Skills[skillIdx].DamageRate * GetAttack();
+	Other->Hit(nowDamage);
 }
 
-void Character::Hit(Character* Other)
+void Character::Hit(int damage)
 {
-	
+	CurrentHp -= damage;
+}
+
+void Character::AddSkill(Skill&& skill)
+{
+	Skills.push_back(move(skill));
 }
