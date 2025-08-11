@@ -89,13 +89,16 @@ void MainGame::PlayGame()
 			{
 				cout << "포션이 부족합니다" << '\n';
 			}
-			else
+			else if(MyPlayer->FullHp() == false)
 			{
 				MyPlayer->UseItem(ItemIdx::HealthPotion);
 				cout << "현재 HP : " << MyPlayer->GetNowHp() << '\n';
 				cout << "남은 HP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::HealthPotion) << '\n';
 			}
-			
+			else
+			{
+				cout << "HP가 가득차있습니다 :" << MyPlayer->GetNowHp() << '\n';
+			}
 		}
 		break;
 		case 2:
@@ -104,11 +107,15 @@ void MainGame::PlayGame()
 			{
 				cout << "포션이 부족합니다" << '\n';
 			}
-			else
+			else if(MyPlayer->FullMp() == false)
 			{
 				MyPlayer->UseItem(ItemIdx::ManaPotion);
 				cout << "현재 MP : " << MyPlayer->GetNowMp() << '\n';
 				cout << "남은 MP 포션 수 : " << MyPlayer->GetItemCount(ItemIdx::ManaPotion) << '\n';
+			}
+			else
+			{
+				cout << "MP가 가득차있습니다 :" << MyPlayer->GetNowMp() << '\n';
 			}
 		}
 		break;
