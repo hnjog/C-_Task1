@@ -1,6 +1,7 @@
 ﻿#include "Util.h"
 #include "Character.h"
 #include "Skill.h"
+#include <iostream>
 
 Character::Character()
 	: Character(0, 0, 0, 0, string{})
@@ -31,12 +32,45 @@ Character::~Character()
 	SafeDelete(EnhancedStat);
 }
 
-void Character::Attack(Character* Other, int skillIdx)
+void Character::Attack(Character* Other, SkillIdx skillIdx)
 {
-	if (skillIdx >= Skills.size())
+	if (skillIdx >= SkillIdx::SkillMax)
+	{
 		return;
+	}
+
+	if (Skills.find(skillIdx) == Skills.end())
+	{
+		cout << "존재하지 않는 스킬입니다!" << '\n';
+		return;
+	}
+
+	if (Skills[skillIdx].RequireMp >= CurrentMp)
+	{
+		cout << "스킬 사용이 불가합니다." << '\n';
+		return;
+	}
 
 	int nowDamage = static_cast<int>(Skills[skillIdx].DamageRate * static_cast<double>(GetAttack()));
+
+	switch (skillIdx)
+	{
+	case BaseAttack:
+	{
+		CurrentMp -= Skills[skillIdx].RequireMp;
+		cout << "* 스킬을 사용하여 MP가 " << Skills[skillIdx].RequireMp <<  " 소모되었습니다." << '\n';
+		cout << "현재 MP : " << CurrentMp << '\n';
+	}
+		break;
+	case LethalAttack:
+	{
+		CurrentMp /= 2;
+		cout << "* 스킬을 사용하여 MP가 50% 소모되었습니다." << '\n';
+		cout << "현재 MP : " << CurrentMp << '\n';
+	}
+		break;
+	}
+
 	Other->Hit(nowDamage);
 }
 
@@ -45,9 +79,9 @@ void Character::Hit(int damage)
 	CurrentHp -= damage;
 }
 
-void Character::AddSkill(Skill&& skill)
+void Character::AddSkill(SkillIdx skillIdx, Skill&& skill)
 {
-	Skills.push_back(move(skill));
+	Skills[skillIdx] = move(skill);
 }
 
 void Character::HealHp(int amount)
@@ -58,9 +92,15 @@ void Character::HealHp(int amount)
 	if (FullHp())
 		return;
 
-	CurrentHp += amount;
+	int healAmount = amount;
+	CurrentHp += healAmount;
 	if (CurrentHp > GetMaxHp())
+	{
+		healAmount = amount - (CurrentHp - GetMaxHp());
 		CurrentHp = GetMaxHp();
+	}
+
+	cout << "* HP가 " << healAmount << " 회복되었습니다.";
 }
 
 void Character::RefreshMp(int amount)
@@ -71,9 +111,15 @@ void Character::RefreshMp(int amount)
 	if (FullMp())
 		return;
 
+	int refreshAmount = amount;
 	CurrentMp += amount;
 	if (CurrentMp > GetMaxMp())
+	{
+		refreshAmount = amount - (CurrentMp - GetMaxMp());
 		CurrentMp = GetMaxMp();
+	}
+
+	cout << "* HP가 " << refreshAmount << " 회복되었습니다.";
 }
 
 void Character::BoostDoubleMaxHp()
@@ -82,6 +128,7 @@ void Character::BoostDoubleMaxHp()
 	int baseHp = BaseStat->MaxHp;
 
 	EnhancedStat->MaxHp = targetHp - baseHp;
+	cout << "* HP가 2배로 증가되었습니다." << '\n';
 }
 
 void Character::BoostDoubleMaxMp()
@@ -90,4 +137,5 @@ void Character::BoostDoubleMaxMp()
 	int baseMp = BaseStat->MaxMp;
 
 	EnhancedStat->MaxMp = targetMp - baseMp;
+	cout << "* MP가 2배로 증가되었습니다." << '\n';
 }

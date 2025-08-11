@@ -13,3 +13,10 @@ enum EffectIdx
 	ManaRefrain,
 	EffectMax
 };
+
+enum SkillIdx
+{
+	BaseAttack,
+	LethalAttack,
+	SkillMax,
+};

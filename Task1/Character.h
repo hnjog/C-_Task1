@@ -1,7 +1,8 @@
 ﻿#pragma once
 
-#include <vector>
+#include <unordered_map>
 #include <string>
+#include "Enums.h"
 
 using namespace std;
 
@@ -40,10 +41,10 @@ public:
 	Character(const Stats& stats, string name);
 	virtual ~Character();
 
-	virtual void Attack(Character* Other, int skillIdx);
+	virtual void Attack(Character* Other, SkillIdx skillIdx);
 	virtual void Hit(int damage);
 
-	void AddSkill(Skill&& skill);
+	void AddSkill(SkillIdx skillIdx, Skill&& skill);
 
 	void HealHp(int amount);
 	void RefreshMp(int amount);
@@ -76,6 +77,6 @@ protected:
 	Stats* BaseStat;
 	Stats* EnhancedStat;
 
-	vector<Skill> Skills;
+	unordered_map<SkillIdx, Skill> Skills;
 };
 
