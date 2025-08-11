@@ -45,7 +45,7 @@ void Character::Attack(Character* Other, SkillIdx skillIdx)
 		return;
 	}
 
-	if (Skills[skillIdx].RequireMp >= CurrentMp)
+	if (Skills[skillIdx].RequireMp > CurrentMp)
 	{
 		cout << "스킬 사용이 불가합니다." << '\n';
 		return;
